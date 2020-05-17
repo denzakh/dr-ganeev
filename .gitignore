@@ -1,0 +1,11 @@
+!.gitignore
+.htaccess
+.idea
+.vscode
+.editorconfig
+.gitattributes
+/node_modules
+/app/build/
+robots.txt
+
+

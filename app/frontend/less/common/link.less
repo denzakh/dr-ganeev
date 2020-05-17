@@ -1,0 +1,69 @@
+/////////  Ссылки  /////////////
+@c-link: #096977;
+
+.link-basic(@link-color: @c-link, @link-color-hover: #000000) {
+  color: @link-color;
+  text-decoration: none;
+  border-bottom: 1px solid fade(@link-color, 30%); 
+  &:hover {
+    color: @link-color-hover;
+    border-bottom: 1px solid fade(@link-color-hover, 30%); 
+  } 
+}
+
+.link-basic-mono(@link-color: @c-link) {
+  color: @link-color;
+  text-decoration: none;
+  border-bottom: 1px solid fade(@link-color, 30%); 
+}
+
+.link-dashed(@link-color: @c-link, @link-color-hover: @link-color) {
+  color: @link-color;
+  text-decoration: none;
+  border-bottom: 1px dashed fade(@link-color, 30%); 
+  &:hover {
+    color: @link-color-hover;
+    border-bottom: 1px dashed fade(@link-color-hover, 30%); 
+  } 
+}
+
+.link-dashed-mono(@link-color: @c-link) {
+  color: @link-color;
+  text-decoration: none;
+  border-bottom: 1px dashed fade(@link-color, 30%); 
+}
+
+
+a {
+  .link-basic;
+}
+
+.no-link(@nolink-color: inherit) {
+  text-decoration: none;
+  border-bottom: none;
+  // cursor: default;
+  color: @nolink-color;
+  &:hover,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    border-bottom: none;
+    // cursor: default;
+    color: @nolink-color;
+  } 
+}
+
+a.no-link {
+  .no-link();
+}
+
+.no-border {
+  border-bottom: none;
+  text-decoration: none;
+  &:hover,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    border-bottom: none;
+  } 
+}

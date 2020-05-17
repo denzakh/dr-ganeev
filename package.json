@@ -1,0 +1,50 @@
+{
+  "name": "dr-ganeev",
+  "version": "1.0.0",
+  "description": "Сайт Доктор Ганеев, 2020",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "*",
+    "autoprefixer": "*",
+    "babel-core": "*",
+    "babel-polyfill": "*",
+    "babel-preset-env": "*",
+    "babelify": "*",
+    "browserify": "*",
+    "cssnano": "*",
+    "eslint": "*",
+    "fontmin": "*",
+    "gifsicle": "*",
+    "gulp": "^4.0.0",
+    "gulp-babel": "*",
+    "gulp-concat": "*",
+    "gulp-imagemin": "*",
+    "gulp-less": "*",
+    "gulp-postcss": "*",
+    "gulp-real-favicon": "*",
+    "gulp-rename": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "imagemin-jpegoptim": "*",
+    "jpegtran": "*",
+    "jpegtran-bin": "*",
+    "optipng": "*",
+    "optipng-bin": "*",
+    "path": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*"
+  },
+  "author": "Denis Zakharchenko",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "*",
+    "babel-cli": "*",
+    "natives": "*"
+  }
+}

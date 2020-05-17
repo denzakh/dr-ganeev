@@ -1,0 +1,18 @@
+// общие стили
+  @import url(common.less);
+  
+// десктопный вариант
+@media screen and (min-width: @desktop-min-width) {
+  @import url(desktop.less);
+}
+
+
+// таблетный вариант
+@media screen and (min-width: @tab-min-width) and (max-width: @tab-max-width)  {
+  @import url(tab.less);
+}
+
+// мобильный вариант
+@media screen and (max-width: @mobile-max-width) {
+  @import url(mobile.less);
+}

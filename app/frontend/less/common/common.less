@@ -1,0 +1,57 @@
+
+*,
+*:before,
+*:after{
+  box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body{
+  position: relative;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility:    hidden;
+
+  @media (min-width: @conteiner-mobile-min-width) {
+    overflow-x: hidden;
+  }
+}
+
+// input, button, select, textarea{
+//   outline: none;
+// }
+
+img {
+  max-width: 100%;
+  vertical-align:bottom;
+}
+
+.hidden {
+  display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  opacity: 0;
+}
+
+.dib {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.no-margin {
+  margin: 0!important;
+}
+
+
+
+
