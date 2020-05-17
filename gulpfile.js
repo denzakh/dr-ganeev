@@ -68,8 +68,8 @@ function img(cb) {
 		.pipe(
 			imagemin([
 				imagemin.gifsicle(),
-				imagemin.jpegtran({
-					progressive: true
+				imagemin.mozjpeg({
+				    progressive: true,
 				}),
 				imagemin.optipng({
 					optimizationLevel: 7

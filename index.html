@@ -3,22 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <title>Нейрохирург Ганеев Алексей Аликович</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 </head>
 <body>
   <div class="body-wrapper">
     <header class="header"></header>
     <main class="main">
-      <secion class="promo"></secion>
+      <secion class="promo">
+        <div class="container">
+          <h1>Нейрохирург Ганеев Алексей Аликович</h1>
+        </div>
+
+      </secion>
       <secion class="about"></secion>
-    </main>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__row">
-          <div class="footer__col">
-            Ганеев Алексей Аликович, 2020
+      <secion class="corona">
+        <div class="container">
+          <div class="corona__inner content-standart">
+            <h2>Защита от коронавируса</h2>
+            <p>В результате пандемии снизилась доступность медицинской помощи. Но что делать людям, которые нуждаются в лечении прямо сейчас?</p>
+            <p>В соответствии с рекомендациями Роспотребнадзоры мы внедрили ряд мероприятий, позволяющих защитить пациентов при посещении поликлиники:</p>
+            <ul>
+              <li class="corona__li">прием пациентов только по предварительной записи, никаких очередей или скопления людей в помещении не допускается</li>
+              <li class="corona__li">максимально возможное сокращение времени нахождения в поликлинике. Вы приходите только на осмотр или манипуляции, а вся необходимая информация будет предварительно обсуждена по телефону или видеосвязи</li>
+              <li class="corona__li">проветривание и обеззараживание воздуха помещения перед каждым пациентом</li>
+              <li class="corona__li">протирание раствором антисептика контактных поверхностей (ручки дверей, поручни, столы, кушетки);</li>
+              <li class="corona__li">обязательное ношение масок пациентом и персоналом, частое мытье рук с мылом</li>
+              <li class="corona__li">проведение ежедневной термометрии сотрудников при входе на работу, регулярное проведение тестов на covid-19</li>
+              <li class="corona__li">максимальное разобщение работников по времени и пространству</li>
+              <li class="corona__li">проведение текущей дезинфекции помещений</li>
+            </ul>
           </div>
         </div>
-      </div>
+      </secion>
+    </main>
+    <footer class="footer">
+      <section class="contact">
+        <div class="container">
+          <div class="contact__row">
+            <div class="contact__col contact__col--text">
+              <div class="contact__content content-standart">
+                <h2>Контакты</h2>
+                <p>
+                  Прием ведется в клинике Биомед,
+                  c собой необходимо взять паспорт
+                </p>
+                <p>Запись на прием по телефону: <br>
+                  <a href="tel:+79191428663" class="contact__tel no-link">+7&nbsp;(919)&nbsp;142-86-63</a>
+                </p>
+                <div class="contact__i-row">
+                  <div class="contact__i-col">
+                    <p><b>Адрес: </b><br>
+                      Республика Башкортостан, <br>
+                      г. Салават, ул. Калинина, 89 </p>
+                  </div>
+                  <div class="contact__i-col">
+                    <p  class="contact__hours">
+                      <b>Часы работы:</b> <br>
+                      <span class="contact__hours">Пн–Пт: 09:00–19:00 </span><br>
+                      <span class="contact__hours">Суббота: 10:00–16:00</span><br>
+                      <span class="contact__hours">Обед: 13:00–14:00</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contact__col contact__col--img">
+              <div class="contact__img-box">
+                <img src="/app/build/img/main/biomed-1x.jpg"
+                  srcset="/app/build/img/main/biomed-1x.jpg 1x, /app/build/img/main/biomed-2x.jpg 2x"
+                  alt="Вход в клинику" class="contact__img" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact__map-row">
+          <div class="contact__map" id="map"  style="min-height: 400px"></div>
+        </div>
+      </section>
       <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="pswp__bg"></div>
         <div class="pswp__scroll-wrap">
@@ -57,5 +120,29 @@
       </div>
     </footer>
   </div>
+  <link rel="stylesheet" href="/app/build/css/style.min.css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&amp;subset=cyrillic-ext" rel="stylesheet">
+  <script src="/app/build/js/script.min.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=d1db9040-d944-4c40-812f-21d5c86c723a&lang=ru_RU" type="text/javascript"></script>
+  <script>
+    var map;
+
+    function init() {
+      map = new ymaps.Map("map", {
+        center: [53.348279, 55.951298],
+        zoom: 14,
+        controls: ['typeSelector', 'zoomControl']
+      });
+      var OfficeAddress = new ymaps.Placemark([53.348279, 55.951298],{
+        balloonContent: 'клиника <strong>Биомед</strong>'
+      }, {
+        preset: 'islands#redMedicalIcon'
+      });
+      map.behaviors.disable('scrollZoom');
+      map.geoObjects.add(OfficeAddress);
+    }
+
+    ymaps.ready(init);
+  </script>
 </body>
 </html>
