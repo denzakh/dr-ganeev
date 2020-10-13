@@ -37,7 +37,7 @@
 .contact__tel {
   font-size: 30px;
   font-weight: 700;
-  color: darkorange!important;
+  color: #0089a9!important;
   text-shadow: 0 0 1px rgba(0,0,0,0.4);
 }
 .contact__hours {
@@ -45,6 +45,7 @@
 }
 .contact__img-box {
   // min-width: 400px;
+  filter: saturate(0%);
 }
 .contact__img {
   border: 1px solid #cccccc;
@@ -67,5 +68,20 @@
   }
 }
 .contact__map {
+  position: relative;
   background-color: #FCFBF7;
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   display: block;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   background-color: rgba(0,137,169,0.2);
+  //   touch-action: none;
+  // }
+  & ymaps {
+    filter: saturate(95%);
+  }
 }
