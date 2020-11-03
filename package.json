@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "deploy": "cd dist && rsync --archive --compress --delete . den-zakh@den-zakh.myjino.ru:/var/www/pepelsbey.dev/html/"
   },
   "devDependencies": {
     "@babel/preset-env": "*",
@@ -23,6 +24,7 @@
     "gulp": "^4.0.0",
     "gulp-babel": "*",
     "gulp-concat": "*",
+    "gulp-html-minifier": "^0.1.8",
     "gulp-imagemin": "*",
     "gulp-less": "*",
     "gulp-postcss": "*",
@@ -45,7 +47,6 @@
   "dependencies": {
     "@babel/core": "*",
     "babel-cli": "*",
-    "html-minifier": "^4.0.0",
     "natives": "*"
   }
 }

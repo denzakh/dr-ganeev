@@ -1,7 +1,7 @@
 "use strict";
 
-const FRONT_PATH = "./app/frontend/";
-const BUILD_PATH = "./app/build/";
+const FRONT_PATH = "./src/";
+const BUILD_PATH = "./dist/";
 
 const gulp = require("gulp");
 const browserify = require("browserify");
@@ -23,10 +23,12 @@ const concat = require("gulp-concat");
 const imagemin   = require("gulp-imagemin");
 const imageminJpegoptim = require("imagemin-jpegoptim");
 
-const rename = require('gulp-rename');
-const realFavicon = require ('gulp-real-favicon');
+const htmlmin = require('gulp-html-minifier');
 
-const fs = require('fs');
+const rename = require("gulp-rename");
+const realFavicon = require ("gulp-real-favicon");
+
+const fs = require("fs");
 
 
 function js(cb) {
@@ -82,105 +84,23 @@ function img(cb) {
 		.pipe(gulp.dest(BUILD_PATH));
 }
 
+function html(cb) {
+	return 	gulp.src([FRONT_PATH+"**/*.html"])
+		.pipe(htmlmin({collapseWhitespace: true}))
+		.pipe(gulp.dest(BUILD_PATH));
+
+}
+
 
 // отслеживаем изменения в проекте
 function watch(cb) {
 	gulp.watch(FRONT_PATH+'less/**/*.less', gulp.series(css) );
 	gulp.watch(FRONT_PATH+'js/**/*.js', gulp.series(js) );
+	gulp.watch(FRONT_PATH+'**/*.html', gulp.series(html) );
 	console.log('Running watch...');
 }
 
 // КОМАНДЫ ЗАПУСКА
 exports.ss = gulp.parallel(js, css);
-exports.default = gulp.series(gulp.parallel(css, js), watch);
-exports.build = gulp.series(gulp.parallel(css, js, img));
-
-
-
-
-// ВСПОМОГАТЕЛЬНЫЕ ЗАДАЧИ
-
-
-// создание фавиконов
-// File where the favicon markups are stored
-var FAVICON_DATA_FILE = 'faviconData.json';
-
-// Замените TODO: Path to your master picture на путь до вашего исходника
-// из которой будут генерироваться иконки.
-// Например, assets/images/master_picture.png
-
-// Замените TODO: Path to the directory where to store the icons
-// на путь до директории где будут лежать ваши сгенерированые иконки.
-// Например, dist/images/icons
-// iconsPath - относительный путь до иконок от HTML, / - по умолчанию
-
-gulp.task('generate-favicon', function(done) {
-  realFavicon.generateFavicon({
-	masterPicture: FRONTEND_PATH +'img/favicon.jpg',
-	dest: FRONTEND_PATH +'img/favicons',
-	iconsPath: BUILD_PATH + 'img/favicons/',
-	design: {
-	  ios: {
-		pictureAspect: 'backgroundAndMargin',
-		backgroundColor: '#ffffff',
-		margin: '1px'
-	  },
-	  desktopBrowser: {},
-	  windows: {
-		pictureAspect: 'no_change',
-		backgroundColor: '#da532c',
-		onConflict: 'override'
-	  },
-	  androidChrome: {
-		pictureAspect: 'shadow',
-		themeColor: '#ffffff',
-		manifest: {
-		  name: 'PUGOFKA',
-		  display: 'browser',
-		  orientation: 'notSet',
-		  onConflict: 'override'
-		}
-	  },
-	  safariPinnedTab: {
-		pictureAspect: 'silhouette',
-		themeColor: '#5bbad5'
-	  }
-	},
-	settings: {
-	  compression: 5,
-	  scalingAlgorithm: 'Mitchell',
-	  errorOnImageTooSmall: false
-	},
-	markupFile: FAVICON_DATA_FILE
-  }, function() {
-	done();
-  });
-});
-
-
-// Вставка в html
-
-// // Замените TODO: List of the HTML files where to inject favicon markups
-// на путь до файлов в которые будет вставлен код внедрения favicon.
-// Например, ['dist/*.html', 'dist/misc/*.html']
-
-// Замените TODO: Path to the directory where to store the HTML files
-// на путь до директории, где хранятся ваши HTML файлы.
-gulp.task('inject-favicon-markups', function() {
-  gulp.src([ 'icons.html' ])
-	.pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
-	.pipe(gulp.dest(''));
-});
-
-// Check for updates on RealFaviconGenerator (think: Apple has just
-// released a new Touch icon along with the latest version of iOS).
-// Run this task from time to time. Ideally, make it part of your
-// continuous integration system.
-gulp.task('check-for-favicon-update', function(done) {
-  var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
-  realFavicon.checkForUpdates(currentVersion, function(err) {
-	if (err) {
-	  throw err;
-	}
-  });
-});
+exports.default = gulp.parallel(gulp.parallel(css, js, html), watch);
+exports.build = gulp.parallel(gulp.parallel(css, js, img, html));
