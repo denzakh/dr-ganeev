@@ -25,6 +25,8 @@ const imageminJpegoptim = require("imagemin-jpegoptim");
 
 const htmlmin = require('gulp-html-minifier');
 
+const rsync = require('gulp-rsync'),
+
 const rename = require("gulp-rename");
 const realFavicon = require ("gulp-real-favicon");
 
@@ -88,9 +90,22 @@ function html(cb) {
 	return 	gulp.src([FRONT_PATH+"**/*.html"])
 		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(gulp.dest(BUILD_PATH));
-
 }
 
+function deploy(cb) {
+  return gulp.src(BUILD_PATH)
+  .pipe(rsync({
+    root: BUILD_PATH,
+    hostname: 'den-zakh@den-zakh.myjino.ru',
+    destination: '/domains/dr-ganeev.ru/',
+    // include: ['*.htaccess'], // Includes files to deploy
+    exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
+    recursive: true,
+    archive: true,
+    silent: false,
+    compress: true
+  }))
+}
 
 // отслеживаем изменения в проекте
 function watch(cb) {
@@ -104,3 +119,4 @@ function watch(cb) {
 exports.ss = gulp.parallel(js, css);
 exports.default = gulp.parallel(gulp.parallel(css, js, html), watch);
 exports.build = gulp.parallel(gulp.parallel(css, js, img, html));
+exports.deploy = gulp.parallel(deploy);
