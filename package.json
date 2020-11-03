@@ -45,6 +45,7 @@
   "dependencies": {
     "@babel/core": "*",
     "babel-cli": "*",
+    "html-minifier": "^4.0.0",
     "natives": "*"
   }
 }

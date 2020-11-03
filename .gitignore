@@ -5,6 +5,7 @@
 .editorconfig
 .gitattributes
 /node_modules
+/dist
 robots.txt
 
 
