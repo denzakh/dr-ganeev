@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
     "build": "gulp build",
-    "deploy": "cd dist && rsync --archive --compress --delete . den-zakh@den-zakh.myjino.ru:/var/www/pepelsbey.dev/html/"
+    "deploy": "cd dist && rsync --archive --compress --delete . den-zakh@den-zakh.myjino.ru:/domains/dr-ganeev.ru/"
   },
   "devDependencies": {
     "@babel/preset-env": "*",
