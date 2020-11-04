@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
   <title>Нейрохирург Ганеев Алексей Аликович</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Сайт нейрохирурга Ганеева Алексея Аликовича">
 </head>
 <body>
   <div class="body-wrapper">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="promo__contact">
                   <div class="promo__contact-text">Запись на прием по телефону:</div>
-                  <a class="promo__contact-tel" href="tel:+7 (919) 142-86-63">+7 (919) 142-86-63</a>
+                  <a class="promo__contact-tel" href="tel:+79191428663">+7 (919) 142-86-63</a>
                 </div>
               </div>
             </div>
@@ -147,30 +147,20 @@
             <div class="mp__cert">
               <div class="mp__cert-row">
                 <figure class="mp__cert-item">
-                  <a class="mp__cert-link" href="" itemprop="contentUrl" data-size="">
-                      <img class="mp__cert-img" src="/img/cert/diplom-th-1x.jpg" itemprop="thumbnail" alt="Диплом врача">
+                  <a class="mp__cert-link" href="img/cert/diplom-th-2x.jpg" data-size="">
+                      <img class="mp__cert-img" src="/img/cert/diplom-th-1x.jpg" alt="Диплом врача">
                   </a>
                 </figure>
                 <figure class="mp__cert-item">
-                  <a class="mp__cert-link" href="" itemprop="contentUrl" data-size="">
-                      <img class="mp__cert-img" src="/img/cert/cert-sp-th-1x.jpg" itemprop="thumbnail" alt="Сертификат специалиста">
+                  <a class="mp__cert-link" href="/img/cert/cert-sp-th-2x.jpg" data-size="">
+                      <img class="mp__cert-img" src="/img/cert/cert-sp-th-1x.jpg" alt="Сертификат специалиста">
                   </a>
                 </figure>
                 <figure class="mp__cert-item">
-                  <a class="mp__cert-link" href="" itemprop="contentUrl" data-size="">
-                      <img class="mp__cert-img" src="/img/cert/udostov-th-1x.jpg" itemprop="thumbnail" alt="Удостоверение о повышении квалификации">
+                  <a class="mp__cert-link" href="/img/cert/udostov-th-2x.jpg" data-size="">
+                      <img class="mp__cert-img" src="/img/cert/udostov-th-1x.jpg" alt="Удостоверение о повышении квалификации">
                   </a>
                 </figure>
-<!--                 <figure class="mp__cert-item">
-                  <a class="mp__cert-link" href="" itemprop="contentUrl" data-size="">
-                      <img class="mp__cert-img" src="/img/cert/pismo-th-1x.jpg" itemprop="thumbnail" alt="Благодарственное письмо">
-                  </a>
-                </figure>
-                <figure class="mp__cert-item">
-                  <a class="mp__cert-link" href="" itemprop="contentUrl" data-size="">
-                      <img class="mp__cert-img" src="/img/cert/gazeta-th-1x.jpg" itemprop="thumbnail" alt="СМИ">
-                  </a>
-                </figure> -->
               </div>
             </div>
           </div>
@@ -319,9 +309,6 @@
   <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&amp;subset=cyrillic-ext" rel="stylesheet">
   <script src="/js/script.min.js"></script>
 
-
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=d1db9040-d944-4c40-812f-21d5c86c723a&lang=ru_RU" type="text/javascript"></script>
-
   <script>
     (function() {
       function addScript(src) {
@@ -329,10 +316,6 @@
         elem.src = src;
         document.head.appendChild(elem);
       }
-
-      setTimeout(
-        addScript('https://api-maps.yandex.ru/2.1/?apikey=d1db9040-d944-4c40-812f-21d5c86c723a&lang=ru_RU'),
-      500);
 
       function startMap() {
         var map;
@@ -355,7 +338,12 @@
         ymaps.ready(init);
       }
 
+      setTimeout(
+        addScript('https://api-maps.yandex.ru/2.1/?apikey=d1db9040-d944-4c40-812f-21d5c86c723a&lang=ru_RU'),
+      1000);
+
       var timerId = setInterval(function() {
+        console.log(1);
         if(window.ymaps) {
           clearInterval(timerId);
           startMap();

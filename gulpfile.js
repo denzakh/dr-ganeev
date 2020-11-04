@@ -25,7 +25,7 @@ const imageminJpegoptim = require("imagemin-jpegoptim");
 
 const htmlmin = require('gulp-html-minifier');
 
-const rsync = require('gulp-rsync'),
+const rsync = require('gulp-rsync');
 
 const rename = require("gulp-rename");
 const realFavicon = require ("gulp-real-favicon");
