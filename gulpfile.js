@@ -94,17 +94,21 @@ function html(cb) {
 
 function deploy(cb) {
   return gulp.src(BUILD_PATH)
-  .pipe(rsync({
-    root: BUILD_PATH,
-    hostname: 'den-zakh@den-zakh.myjino.ru',
-    destination: '/domains/dr-ganeev.ru/',
-    // include: ['*.htaccess'], // Includes files to deploy
-    exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
-    recursive: true,
-    archive: true,
-    silent: false,
-    compress: true
-  }))
+  .pipe(
+  	rsync({
+	    root: BUILD_PATH,
+	    hostname: 'den-zakh@den-zakh.myjino.ru',
+	    destination: '/domains/dr-ganeev.ru/',
+	    // include: ['*.htaccess'], // Includes files to deploy
+	    exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
+	    recursive: true,
+	    archive: true,
+	    silent: false,
+	    compress: true
+	  }).on('error', function(error) {
+				console.log(error);
+	  })
+  )
 }
 
 // отслеживаем изменения в проекте
