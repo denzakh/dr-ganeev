@@ -44,8 +44,13 @@
 .promo__contact {
   margin-top: 10%;
 }
+
+
+// adaptive tel
+
 .promo__contact-text {
   font-size: 24px;
+  white-space: nowrap;
 }
 .promo__contact-tel,
 .promo__contact-tel:hover,
@@ -54,4 +59,44 @@
   color: #ffffff;
   border-bottom: none;
   text-decoration: none;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1149px) and (min-width: 770px) {
+  .promo__contact-text {
+    font-size: 24px;
+  }
+  .promo__contact-tel,
+  .promo__contact-tel:hover,
+  .promo__contact-tel:visited {
+    font-size: 38px;
+    color: #ffffff;
+    border-bottom: none;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 770px) and (min-width: 641px) {
+  .promo__contact-text {
+    font-size: 19px;
+  }
+  .promo__contact-tel,
+  .promo__contact-tel:hover,
+  .promo__contact-tel:visited {
+    font-size: 31px;
+    color: #ffffff;
+    border-bottom: none;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .promo__contact-text {
+    font-size: 20px;
+  }
+  .promo__contact-tel,
+  .promo__contact-tel:hover,
+  .promo__contact-tel:visited {
+    font-size: 32px;
+  }
 }

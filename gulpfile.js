@@ -93,20 +93,17 @@ function html(cb) {
 }
 
 function deploy(cb) {
-  return gulp.src(BUILD_PATH)
+  return gulp.src('./test/**')
   .pipe(
   	rsync({
-	    root: BUILD_PATH,
+	    root: './test/',
 	    hostname: 'den-zakh@den-zakh.myjino.ru',
-	    destination: '/domains/dr-ganeev.ru/',
-	    // include: ['*.htaccess'], // Includes files to deploy
-	    exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
+	    destination: '/test/',
+	    exclude: ['**/Thumbs.db', '**/*.DS_Store'],
 	    recursive: true,
 	    archive: true,
 	    silent: false,
 	    compress: true
-	  }).on('error', function(error) {
-				console.log(error);
 	  })
   )
 }

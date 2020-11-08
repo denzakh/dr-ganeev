@@ -15,7 +15,11 @@
         <div class="container">
           <div class="promo__row">
             <div class="promo__col promo__col--img">
-              <img src="/img/main/hero.png" alt="" class="promo__img">
+              <picture class="promo__img">
+                <source media="(max-width: 640px)" srcset="/img/main/hero--mob-1x.png 1x,
+                /img/main/hero--mob-2x.png 2x">
+                <img src="/img/main/hero.png" alt="" class="promo__img">
+              </picture>
             </div>
             <div class="promo__col promo__col--text">
               <div class="promo__content">
@@ -73,7 +77,11 @@
           <div class="mp__section-bg-out">
             <div class="mp__section-bg-middle">
               <div class="mp__section-bg-inner">
-                <img src="/img/main/about.jpg" alt="" class="mp__section-img">
+                <picture class="mp__section-img">
+                  <source media="(max-width: 640px)" srcset="/img/main/about--mob-1x.jpg 1x,
+                  /img/main/about--mob-2x.jpg 2x">
+                  <img src="/img/main/about.jpg" alt="" class="mp__section-img">
+                </picture>
               </div>
             </div>
           </div>
@@ -121,7 +129,11 @@
           <div class="mp__section-bg-out">
             <div class="mp__section-bg-middle">
               <div class="mp__section-bg-inner">
-                <img src="/img/main/desease.jpg" alt="" class="mp__section-img">
+                <picture class="mp__section-img">
+                  <source media="(max-width: 640px)" srcset="/img/main/desease--mob-1x.jpg 1x,
+                  /img/main/desease--mob-2x.jpg 2x">
+                  <img src="/img/main/desease.jpg" alt="" class="mp__section-img">
+                </picture>
               </div>
             </div>
           </div>
@@ -148,17 +160,17 @@
               <div class="mp__cert-row">
                 <figure class="mp__cert-item">
                   <a class="mp__cert-link" href="img/cert/diplom-th-2x.jpg" data-size="">
-                      <img class="mp__cert-img" src="/img/cert/diplom-th-1x.jpg" alt="Диплом врача">
+                    <img class="mp__cert-img" src="/img/cert/diplom-th-1x.jpg" alt="Диплом врача">
                   </a>
                 </figure>
                 <figure class="mp__cert-item">
                   <a class="mp__cert-link" href="/img/cert/cert-sp-th-2x.jpg" data-size="">
-                      <img class="mp__cert-img" src="/img/cert/cert-sp-th-1x.jpg" alt="Сертификат специалиста">
+                    <img class="mp__cert-img" src="/img/cert/cert-sp-th-1x.jpg" alt="Сертификат специалиста">
                   </a>
                 </figure>
                 <figure class="mp__cert-item">
                   <a class="mp__cert-link" href="/img/cert/udostov-th-2x.jpg" data-size="">
-                      <img class="mp__cert-img" src="/img/cert/udostov-th-1x.jpg" alt="Удостоверение о повышении квалификации">
+                    <img class="mp__cert-img" src="/img/cert/udostov-th-1x.jpg" alt="Удостоверение о повышении квалификации">
                   </a>
                 </figure>
               </div>
@@ -193,7 +205,13 @@
               <li>Декомпрессия нервов при туннельных синдромах, иссечение невром, периневральный шов нерва, лечебные медикаментозными блокады, в т.ч. КТ или Rg-контролируемые.</li>
             </ul>
             <p>
-              <img class="" src="/img/main/wheelchair.jpg" alt="Человек в коляске">
+              <picture>
+                <source media="(max-width: 640px)" srcset="/img/main/wheelchair--mob-1x.jpg 1x,
+                /img/main/wheelchair--mob-2x.jpg 2x">
+                <source media="(max-width: 1150px)" srcset="/img/main/wheelchair--tab-desk-1x.jpg 1x,
+                /img/main/wheelchair--tab-desk-2x.jpg 2x">
+                <img class="" src="/img/main/wheelchair.jpg" alt="Человек в коляске">
+              </picture>
             </p>
           </div>
         </div>
