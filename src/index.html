@@ -16,8 +16,7 @@
           <div class="promo__row">
             <div class="promo__col promo__col--img">
               <picture class="promo__img">
-                <source media="(max-width: 640px)" srcset="/img/main/hero--mob-1x.png 1x,
-                /img/main/hero--mob-2x.png 2x">
+                <source media="(max-width: 640px)" srcset="/img/main/hero--mob-1x.png">
                 <img src="/img/main/hero.png" alt="" class="promo__img">
               </picture>
             </div>
@@ -356,16 +355,19 @@
         ymaps.ready(init);
       }
 
-      setTimeout(
-        addScript('https://api-maps.yandex.ru/2.1/?apikey=d1db9040-d944-4c40-812f-21d5c86c723a&lang=ru_RU'),
-      8000);
+      function loadMap() {
+        var timerId = setInterval(function() {
+          addScript('https://api-maps.yandex.ru/2.1/?apikey=d1db9040-d944-4c40-812f-21d5c86c723a&lang=ru_RU')
+          if(window.ymaps) {
+            clearInterval(timerId);
+            startMap();
+          }
+        }, 2000);
+      }
 
-      var timerId = setInterval(function() {
-        if(window.ymaps) {
-          clearInterval(timerId);
-          startMap();
-        }
-      }, 300);
+      window.onload = function() {
+        loadMap();
+      }
     })();
   </script>
 
