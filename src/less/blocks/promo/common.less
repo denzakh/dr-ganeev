@@ -30,8 +30,6 @@
   max-width: 100%;
   filter: drop-shadow(0px 0px 50px #000000);
 }
-.promo__content {
-}
 .promo__title {
 }
 .promo__text {
@@ -47,9 +45,13 @@
 
 
 // adaptive tel
-
+.promo__content {
+  position: relative;
+  z-index: 1;
+  max-width: 460px;
+}
 .promo__contact-text {
-  font-size: 24px;
+  font-size: 33px;
   white-space: nowrap;
 }
 .promo__contact-tel,
@@ -62,7 +64,33 @@
   white-space: nowrap;
 }
 
-@media screen and (max-width: 1149px) and (min-width: 770px) {
+@media screen and (max-width: 1149px) and (min-width: 900.1px) {
+  .promo__row {
+    max-width: 100%;
+  }
+  .promo__content {
+    max-width: 360px;
+  }
+  .promo__contact-text {
+    font-size: 27px;
+  }
+  .promo__contact-tel,
+  .promo__contact-tel:hover,
+  .promo__contact-tel:visited {
+    font-size: 43px;
+    color: #ffffff;
+    border-bottom: none;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 770.1px) {
+  .promo__row {
+    max-width: 100%;
+  }
+  .promo__content {
+    max-width: 320px;
+  }
   .promo__contact-text {
     font-size: 24px;
   }
@@ -76,7 +104,33 @@
   }
 }
 
-@media screen and (max-width: 770px) and (min-width: 641px) {
+@media screen and (max-width: 770px) and (min-width: 760.1px) {
+  .promo__row {
+    padding: 0 10px;
+  }
+  .promo__content {
+    max-width: 290px;
+  }
+  .promo__contact-text {
+    font-size: 22px;
+  }
+  .promo__contact-tel,
+  .promo__contact-tel:hover,
+  .promo__contact-tel:visited {
+    font-size: 35px;
+    color: #ffffff;
+    border-bottom: none;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 760px) and (min-width: 641px) {
+  .promo__col--text {
+    justify-content: flex-start;
+  }
+  .promo__content {
+    max-width: 260px;
+  }
   .promo__contact-text {
     font-size: 19px;
   }
@@ -100,3 +154,6 @@
     font-size: 32px;
   }
 }
+
+
+//
