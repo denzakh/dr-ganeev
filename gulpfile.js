@@ -20,7 +20,7 @@ const path = require("path");
 const cssnano = require("cssnano");
 const concat = require("gulp-concat");
 
-const imagemin   = require("gulp-imagemin");
+const imagemin = require("gulp-imagemin");
 const imageminJpegoptim = require("imagemin-jpegoptim");
 
 const htmlmin = require('gulp-html-minifier');
@@ -28,16 +28,16 @@ const htmlmin = require('gulp-html-minifier');
 const rsync = require('gulp-rsync');
 
 const rename = require("gulp-rename");
-const realFavicon = require ("gulp-real-favicon");
+const realFavicon = require("gulp-real-favicon");
 
 const fs = require("fs");
 
 
 function js(cb) {
-	return browserify(FRONT_PATH+"js/app.js", { debug: true })
+	return browserify(FRONT_PATH + "js/app.js", {debug: true})
 		.transform(babelify.configure(
 			{
-				presets: ["@babel/preset-env"] ,
+				presets: ["@babel/preset-env"],
 				compact: true
 			}
 		))
@@ -48,32 +48,32 @@ function js(cb) {
 		.pipe(sourcemaps.init({loadMaps: true}))
 		.pipe(uglify())
 		.pipe(sourcemaps.write("./"))
-		.pipe(gulp.dest(BUILD_PATH+"js"));
+		.pipe(gulp.dest(BUILD_PATH + "js"));
 }
 
 
 function css(cb) {
-	return 	gulp.src([FRONT_PATH+"less/style.less"])
+	return gulp.src([FRONT_PATH + "less/style.less"])
 		.pipe(less({
-			paths: [ path.join(__dirname, "less", "includes") ]
+			paths: [path.join(__dirname, "less", "includes")]
 		}))
 		.pipe(postcss([
-			autoprefixer,cssnano({safe:true})
+			autoprefixer, cssnano({safe: true})
 		]))
 		.pipe(sourcemaps.init())
 		.pipe(concat("style.min.css"))
 		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest(BUILD_PATH+"css"));
+		.pipe(gulp.dest(BUILD_PATH + "css"));
 }
 
 
 function img(cb) {
-	return gulp.src(FRONT_PATH+"**/*.{jpg,gif,png,jpeg,svg,ico}")
+	return gulp.src(FRONT_PATH + "**/*.{jpg,gif,png,jpeg,svg,ico}")
 		.pipe(
 			imagemin([
 				imagemin.gifsicle(),
 				imagemin.mozjpeg({
-				    progressive: true,
+					progressive: true,
 				}),
 				imagemin.optipng({
 					optimizationLevel: 7
@@ -81,38 +81,52 @@ function img(cb) {
 				imagemin.svgo(),
 				imageminJpegoptim({max: 85})
 			], {
-			verbose: true
-		}))
+				verbose: true
+			}))
 		.pipe(gulp.dest(BUILD_PATH));
 }
 
 function html(cb) {
-	return 	gulp.src([FRONT_PATH+"**/*.html"])
+	return gulp.src([FRONT_PATH + "**/*.html"])
 		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(gulp.dest(BUILD_PATH));
 }
 
 function deploy(cb) {
-  return gulp.src('./test/**')
-  .pipe(
-  	rsync({
-	    root: './test/',
-	    hostname: 'den-zakh@den-zakh.myjino.ru',
-	    destination: '/test/',
-	    exclude: ['**/Thumbs.db', '**/*.DS_Store'],
-	    recursive: true,
-	    archive: true,
-	    silent: false,
-	    compress: true
-	  })
-  )
+	return gulp.src('./dist/**')
+		.pipe(
+			rsync({
+				options: {
+					chmod: 'ugo=rwX',
+					'r': true,
+					'v': true,
+					'delete': true,
+					'verbose': true,
+					'progress': true
+				},
+				root: 'dist',
+				// позволяет игонорировать папку-источник
+				// например, нужно скопировать все из build
+				// без настройки root папка-источник build будет положена в destination
+				// destination/build/js/**
+				// а если корнем будет build
+				// то будет destination/build/js/**
+				hostname: 'den-zakh@den-zakh.myjino.ru',
+				destination: '/home/users/d/den-zakh/domains/dr-ganeev.ru/',
+				exclude: ['**/Thumbs.db', '**/*.DS_Store'],
+				recursive: true,
+				archive: true,
+				silent: false,
+				compress: true
+			})
+		)
 }
 
 // отслеживаем изменения в проекте
 function watch(cb) {
-	gulp.watch(FRONT_PATH+'less/**/*.less', gulp.series(css) );
-	gulp.watch(FRONT_PATH+'js/**/*.js', gulp.series(js) );
-	gulp.watch(FRONT_PATH+'**/*.html', gulp.series(html) );
+	gulp.watch(FRONT_PATH + 'less/**/*.less', gulp.series(css));
+	gulp.watch(FRONT_PATH + 'js/**/*.js', gulp.series(js));
+	gulp.watch(FRONT_PATH + '**/*.html', gulp.series(html));
 	console.log('Running watch...');
 }
 
