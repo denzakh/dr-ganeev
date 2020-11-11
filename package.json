@@ -4,7 +4,7 @@
   "description": "Сайт Доктор Ганеев, 2020",
   "main": "index.php",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Ok\" && exit 0",
     "start": "gulp",
     "build": "gulp build",
     "deploy": "gulp deploy"
