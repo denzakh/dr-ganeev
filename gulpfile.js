@@ -131,7 +131,6 @@ function watch(cb) {
 }
 
 // КОМАНДЫ ЗАПУСКА
-exports.ss = gulp.parallel(js, css);
 exports.default = gulp.parallel(gulp.parallel(css, js, html), watch);
 exports.build = gulp.parallel(gulp.parallel(css, js, img, html));
 exports.deploy = gulp.parallel(deploy);
