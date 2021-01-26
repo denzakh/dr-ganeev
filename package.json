@@ -1,6 +1,6 @@
 {
   "name": "dr-ganeev",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Сайт Доктор Ганеев, 2020",
   "main": "index.php",
   "scripts": {
@@ -44,7 +44,7 @@
     "vinyl-source-stream": "*"
   },
   "author": "Denis Zakharchenko",
-  "license": "ISC",
+  "license": "Apache 2",
   "dependencies": {
     "@babel/core": "*",
     "babel-cli": "*",

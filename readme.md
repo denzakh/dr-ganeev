@@ -1,5 +1,11 @@
 # Dr-ganeev
 
+![](https://img.shields.io/github/last-commit/denzakh/dr-ganeev.svg) 
+![GitHub watchers](https://img.shields.io/github/watchers/denzakh/dr-ganeev?color=yellow&label=watch)
+![](https://img.shields.io/badge/license-Apache%202-blue.svg) 
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fdr-ganeev.ru%2F)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/denzakh/dr-ganeev?color=9cf)
+
 Сайт доктора Ганеева. Сделан для изучения и обкатки современных технологий фронтенда, в том числе сборки и деплоя.
 
 ![](https://raw.githubusercontent.com/denzakh/dr-ganeev/master/docs/promo.jpg)
