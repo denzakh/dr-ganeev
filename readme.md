@@ -122,12 +122,5 @@ name `KEY`, value – ваш приватный ключ ssh от хостинг
 git push origin main
 ```
 должна запуститься сборка на гитхабе, а результат быть залит на ваш хостинг
-<blockquote class="dg-alert"> <b>Внимание</b>: rsync перетирает указанный каталог, на что указывает флаг <b>--delete</b>. При неправильном указании пути он может перетереть все файлы на хостинге!
-</blockquote>
-
-<style>
-.dg-alert {
-    border-left-color: darkred; 
-    color: darkred;
-}
-</style>   
+<div style="padding: 0 1em; color: darkred; border-left: .25em solid darkred;"> <b>Внимание</b>: rsync перетирает указанный каталог, на что указывает флаг <b>--delete</b>. При неправильном указании пути он может перетереть все файлы на хостинге!
+</div>
