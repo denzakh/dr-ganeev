@@ -76,7 +76,7 @@ npm start
 
 ## Деплой
 
-Сделан на основе [видеурока Макеева](https://youtu.be/hevU4NdIsoU). Когда на гитхаб приходит новый коммит, вебхук активирует CI-систему `githab-action`. Она смотрит в файл `.github/workflows/deploy.yml` и выполняет инструкции:
+Сделан на основе [видеурока Макеева](https://youtu.be/hevU4NdIsoU). Когда на гитхаб приходит новый коммит, вебхук активирует CI-систему `github-action`. Она смотрит в файл `.github/workflows/deploy.yml` и выполняет инструкции:
 
 1. устанавливает легкую Ubuntu
 2. устанавливает Node
@@ -86,5 +86,41 @@ npm start
 
 > Для успешной заливки хостинг должен поддерживать ssh и не иметь ограничений по входящим ip.
 
+## Создание своего проекта
 
+1. Создать новый репозиторий на github, например `deploy-test`
+2. Скопировать инструкции со следующей страницы, из раздела 
+`…or create a new repository on the command line`
+3. открыть в консоле папку (dr-ganeev) и выполнить в ней
+```node
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/<ВАШ_ЛОГИН>/deploy-test.git
+git push -u origin main
+```
+В результате в этой папке будет создан локальный репозиторий, связанный с репозиторием на гитхабе.
 
+## Настройка деплоя для своего проекта
+
+1. Настроить на своем хостинге доступ по ssh
+2. Записать эти данные в конфигурацию:  
+- В `gulpfile.js` задача `deploy` переменные `hostname` и `destination`. В destination должен быть записан абсолютный путь от корня.  
+- В `deploy.yml` раздел `Deploy`.
+- Добавить все в индекс и закоммитить
+```node
+git add .
+git commit -m "deploy"
+```
+3. В настройках репозитория на гитхабе нужно добавить новый ключ:  
+settings -> secrets -> new repository secret  
+name `KEY`, value – ваш приватный ключ ssh от хостинга
+
+Если все правильно настроить, то по команде 
+```node
+git push origin main
+```
+должна запуститься сборка на гитхабе, а результат быть залит на ваш хостинг
+<blockquote style="border-left-color: darkred; color: darkred;"> <b>Внимание</b>: rsync перетирает указанный каталог, на что указывает флаг <b>--delete</b>. При неправильном указании пути он может перетереть все файлы на хостинге!
+</blockquote>
