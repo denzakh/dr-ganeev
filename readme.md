@@ -104,7 +104,7 @@ git push -u origin main
 
 ## Настройка деплоя для своего проекта
 
-1. Настроить на своем хостинге доступ по ssh
+1. Настроить на своем хостинге [доступ по ключу ssh](https://firstvds.ru/technology/dobavit-ssh-klyuch).
 2. Записать эти данные в конфигурацию:  
 - В `gulpfile.js` задача `deploy` переменные `hostname` и `destination`. В destination должен быть записан абсолютный путь от корня.  
 - В `deploy.yml` раздел `Deploy`.
@@ -122,5 +122,12 @@ name `KEY`, value – ваш приватный ключ ssh от хостинг
 git push origin main
 ```
 должна запуститься сборка на гитхабе, а результат быть залит на ваш хостинг
-<blockquote style="border-left-color: darkred; color: darkred;"> <b>Внимание</b>: rsync перетирает указанный каталог, на что указывает флаг <b>--delete</b>. При неправильном указании пути он может перетереть все файлы на хостинге!
+<blockquote class="dg-alert"> <b>Внимание</b>: rsync перетирает указанный каталог, на что указывает флаг <b>--delete</b>. При неправильном указании пути он может перетереть все файлы на хостинге!
 </blockquote>
+
+<style>
+.dg-alert {
+    border-left-color: darkred; 
+    color: darkred;
+}
+</style>   
