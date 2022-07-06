@@ -10,7 +10,7 @@
 	<meta name="keywords"
 		content="консультация нейрохирурга, лечение остеохондроза, лечение грыж позвоночника, лечение гемангиом позвоночника">
 	<style>
-		@@include("../dist/css/critical.min.css")
+		
 	</style>
 	
 </head>
@@ -36,7 +36,8 @@
 										травмами, нейроонкологией, повреждениями головного и спинного мозга.</p>
 								</div>
 								<div class="promo__svg-box">
-									<img src="/img/main/title.svg" alt="" class="promo__svg">
+									@@include("../dist/img/main/title.svg")
+									<!-- <img src="/img/main/title.svg" alt="" class="promo__svg"> -->
 								</div>
 								<div class="promo__contact">
 									<div class="promo__contact-text">Запись на прием по телефону:</div>
@@ -98,7 +99,7 @@
 								<picture class="mp__section-img">
 									<source media="(max-width: 640px)" srcset="/img/main/about--mob-1x.jpg 1x,
 									/img/main/about--mob-2x.jpg 2x">
-									<img src="/img/main/about.jpg" alt="" class="mp__section-img">
+									<img src="/img/main/about.jpg" alt="" class="mp__section-img" loading="lazy">
 								</picture>
 							</div>
 						</div>
@@ -154,7 +155,7 @@
 								<picture class="mp__section-img">
 									<source media="(max-width: 640px)" srcset="/img/main/desease--mob-1x.jpg 1x,
 									/img/main/desease--mob-2x.jpg 2x">
-									<img src="/img/main/desease.jpg" alt="" class="mp__section-img">
+									<img src="/img/main/desease.jpg" alt="" class="mp__section-img" loading="lazy">
 								</picture>
 							</div>
 						</div>
@@ -178,7 +179,7 @@
 							</div>
 							<div class="mp__col mp__col--np">
 								<div class="mp__content">
-									<img src="/img/main/cert.jpg" alt="" class="mp__cert-img">
+									<img src="/img/main/cert.jpg" alt="" class="mp__cert-img" loading="lazy">
 								</div>
 							</div>
 						</div>
@@ -186,18 +187,18 @@
 							<div class="mp__cert-row">
 								<figure class="mp__cert-item">
 									<a class="mp__cert-link" href="img/cert/diplom-th-2x.jpg" data-size="">
-										<img class="mp__cert-img" src="/img/cert/diplom-th-1x.jpg" alt="Диплом врача">
+										<img class="mp__cert-img" src="/img/cert/diplom-th-1x.jpg" alt="Диплом врача" loading="lazy">
 									</a>
 								</figure>
 								<figure class="mp__cert-item">
 									<a class="mp__cert-link" href="/img/cert/cert-sp-th-2x.jpg" data-size="">
-										<img class="mp__cert-img" src="/img/cert/cert-sp-th-1x.jpg" alt="Сертификат специалиста">
+										<img class="mp__cert-img" src="/img/cert/cert-sp-th-1x.jpg" alt="Сертификат специалиста" loading="lazy">
 									</a>
 								</figure>
 								<figure class="mp__cert-item">
 									<a class="mp__cert-link" href="/img/cert/udostov-th-2x.jpg" data-size="">
 										<img class="mp__cert-img" src="/img/cert/udostov-th-1x.jpg"
-											alt="Удостоверение о повышении квалификации">
+											alt="Удостоверение о повышении квалификации" loading="lazy">
 									</a>
 								</figure>
 							</div>
@@ -252,7 +253,7 @@
 								/img/main/wheelchair--mob-2x.jpg 2x">
 								<source media="(max-width: 1150px)" srcset="/img/main/wheelchair--tab-desk-1x.jpg 1x,
 								/img/main/wheelchair--tab-desk-2x.jpg 2x">
-								<img class="" src="/img/main/wheelchair.jpg" alt="Человек в коляске">
+								<img class="" src="/img/main/wheelchair.jpg" alt="Человек в коляске" loading="lazy">
 							</picture>
 						</p>
 					</div>
@@ -323,7 +324,7 @@
 						<div class="contact__col contact__col--img">
 							<div class="contact__img-box">
 								<img src="/img/main/biomed-1x.jpg" srcset="/img/main/biomed-1x.jpg 1x, /img/main/biomed-2x.jpg 2x"
-									alt="Вход в клинику" class="contact__img" />
+									alt="Вход в клинику" class="contact__img"  loading="lazy" />
 							</div>
 						</div>
 					</div>
@@ -443,9 +444,13 @@
 				});
 			}
 
-
+			function getBg() {
+				let body = document.querySelector("body");
+				body.classList.add("is-bg");
+			}
 
 			window.onload = function () {
+				getBg();
 				getMetrika();
 				loadMap();
 			}

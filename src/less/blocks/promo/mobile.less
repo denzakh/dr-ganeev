@@ -1,8 +1,12 @@
+
 .promo {
   padding-top: 50px;
+  height: 722px;
+}
+.promo {
   background: #000000 url("/img/main/hero-bg--mob-1x.jpg") 50% 0 no-repeat;
-  background-image: image-set( "/img/main/hero-bg--mob-1x.jpg 1x",
-                               "/img/main/hero-bg--mob-1x.jpg 2x");
+  // background-image: image-set( "/img/main/hero-bg--mob-1x.jpg 1x",
+  //                              "/img/main/hero-bg--mob-1x.jpg 2x");
 }
 .promo__row {
   flex-direction: column-reverse;
@@ -12,6 +16,15 @@
   width: 270px;
   min-height: 210px;
 }
+.promo__col--img {
+  height: 432px;
+}
 .promo__img {
   filter: drop-shadow(0px 0px 30px rgba(0,0,0,0.5));
+}
+.promo__img {
+	display: none;
+}
+.is-bg .promo__img {
+	display: block;
 }
