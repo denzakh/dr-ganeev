@@ -9,6 +9,10 @@
 	<meta name="description" content="Сайт нейрохирурга Ганеева Алексея Аликовича: консультация, диагностика, лечение">
 	<meta name="keywords"
 		content="консультация нейрохирурга, лечение остеохондроза, лечение грыж позвоночника, лечение гемангиом позвоночника">
+	<style>
+		@@include("../dist/css/critical.min.css")
+	</style>
+	
 </head>
 
 <body>
@@ -416,8 +420,8 @@
 			}
 
 			function loadMap() {
-				var timerId = setInterval(function () {
-					addScript('https://api-maps.yandex.ru/2.1/?apikey=d1db9040-d944-4c40-812f-21d5c86c723a&lang=ru_RU')
+				addScript('https://api-maps.yandex.ru/2.1/?apikey=d1db9040-d944-4c40-812f-21d5c86c723a&lang=ru_RU')
+				var timerId = setInterval(function () {					
 					if (window.ymaps) {
 						clearInterval(timerId);
 						startMap();

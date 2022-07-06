@@ -48,6 +48,7 @@
   "dependencies": {
     "@babel/core": "*",
     "babel-cli": "*",
+    "gulp-file-include": "^2.3.0",
     "natives": "*"
   }
 }
